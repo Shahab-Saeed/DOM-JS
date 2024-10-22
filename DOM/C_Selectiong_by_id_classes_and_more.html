@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            height: 32px;
+            width: 80px;
+            margin:20px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="b">
+        <div class="box1 b1" id="oo">box1</div>
+        <div class="box2 b1">box2</div>
+        <div class="box3 b1">box3</div>
+        <div class="box4 b1">box4</div>
+        <div class="box5 b1">box5</div>
+    </div>
+
+    <script>
+        // to access all the elements that have the same class we use
+        console.log(document.body.getElementsByClassName("b1"));
+
+        //accessing any of the element that contains same class i.e. b1 and changing its css
+        document.body.getElementsByClassName("b1")[2].style.backgroundColor="yellow"
+
+        //accessing ekements by id
+        document.getElementById("oo").style.backgroundColor="chartreuse"
+        //NOTE:-  we don't use body here
+
+
+        //by using query selector we can only access the first element of the same classes as others
+        document.querySelector(".b1").style.backgroundColor="blue"
+         // we use . with classes
+
+
+         //but if we want to access all the elements of the same class, we use 
+         //we have too use it inside log
+         console.log(document.querySelectorAll(".b1"));
+         //this will rerurn the collection of all the elements contains the same classes
+         
+         //noow changing the style (we can't do it simply by using for loop)
+         document.body.querySelectorAll(".b1").forEach(element => {
+            element.style.backgroundColor="blue"
+         });
+
+      
+         //getting elements by tagname
+         console.log(document.body.getElementsByTagName("div"));
+         //this will show all the diiv inside our body tag
+         //this returns the collections of div
+         
+         
+
+        
+    </script>
+</body>
+</html>

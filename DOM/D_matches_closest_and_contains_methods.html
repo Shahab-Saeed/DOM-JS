@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            height: 32px;
+            width: 80px;
+            margin:20px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="b">
+        <div class="box1 b1" id="oo">box1</div>
+        <div class="box2 b1">box2</div>
+        <div class="box3 b1">box3</div>
+        <div class="box4 b1">box4</div>
+        <div class="box5 b1">box5</div>
+    </div>
+
+    <script>
+        //1.
+        //element.matches
+        //to check if the element matches the given css selector
+        //it retuurns tru or false
+        //Example
+        let e=document.body.getElementsByTagName("div");
+        console.log(e[1].matches("#oo")); //returns false because the second number doesn't contains the id "ooo"
+
+        let f=document.body.getElementsByTagName("div");        
+        console.log(f[1].matches(".box1")); //returns true because the second number contains the class "box1"
+
+
+        //2.
+        //element.closest
+        //to look for the nearest ancestors that matches the given css  selectors. the elemment itself is also checkked
+        //first it will check the entered element whether it matches or not
+        //then it will go to its parents, the its grandoaresnts and so on..
+        console.log(f[3].closest(".b"));
+        console.log(f[3].closest("#oo"));
+        console.log(f[3].closest("div"));
+
+
+        //3.
+        //element.contains
+        //returns true if that parent contains that child 
+        //OR
+        //element==element
+        //will return true or false
+        //we usse query selector with it
+        console.log("\n");
+        
+        let g=document.body.getElementsByClassName("b1");        
+       
+        console.log(document.querySelector(".b").contains(g[3])); // returns true
+
+        console.log(document.querySelector(".b").contains(document.querySelector("b"))); ///returnns false
+
+        console.log(document.querySelector("body").contains(document.querySelector("body"))); // returnst true cause element==element
+
+        console.log(document.querySelector(".b").contains(document.querySelector("body"))); // returnst fallse cause element!=element
+        
+        
+       
+        
+        
+    </script>
+</body>
+</html>

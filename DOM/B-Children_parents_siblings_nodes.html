@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            height: 32px;
+            width: 80px;
+            margin:20px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="b">
+        <div class="box1 b1">box1</div>
+        <div class="box2 b1">box2</div>
+        <div class="box3 b1">box3</div>
+        <div class="box4 b1">box4</div>
+        <div class="box5 b1">box5</div>
+    </div>
+
+    <script>
+        //to get all the child nodes inside the body tag we use
+        console.log(document.body.childNodes);
+
+        //if we want to select the second child from the body i can do it by
+        console.log(document.body.childNodes[1]);
+        //and so on....
+
+        //now suppose if i have to access the child element inside the parent element , i can do it by
+        console.log(document.body.childNodes[1].childNodes);
+
+        //accessiing the first child of the parent
+        //1.
+        console.log(document.body.childNodes[1].firstChild);
+
+        //2.
+        let cont=document.body.childNodes[1].firstChild
+        console.log(cont);
+        
+
+        //accessiing the last child of the parent
+        //1.
+        console.log(document.body.childNodes[1].lastChild);
+
+        //2.
+        let coont=document.body.childNodes[1].lastChild
+        console.log(coont);
+        
+
+        //here if we are printing the fiirstchild node or the lastchildnode, we are getting "text" node
+        //so we can solve it by using firstelemmentchild property
+
+        //accessiing the first element child of the parent
+        //1.
+        console.log(document.body.childNodes[1].firstElementChild);
+
+        //2.
+        let contu=document.body.childNodes[1].firstElementChild
+        console.log(contu);
+        
+        
+          //accessiing the last element child of the parent
+        //1.
+        console.log(document.body.childNodes[1].lastElementChild);
+
+        //2.
+        let coontu=document.body.childNodes[1].lastElementChild
+        console.log(coontu);
+
+        //we can also change the css of the child nodes
+        //1.
+        document.body.childNodes[1].firstElementChild.style.backgroundColor="red"
+
+        //2.
+        document.body.childNodes[1].lastElementChild.style.backgroundColor="green"
+
+        //3.
+        document.body.childNodes[1].style.backgroundColor="yellow"
+
+
+        //to access the parent element we use .parentElement
+        let a=document.body.childNodes[1].firstChild.parentElement
+        console.log(a);
+
+        //if we use
+        console.log(document.body.firstElementChild.childNodes);
+        //then this will gives text node and comment nodes also
+
+        //but if we write
+        console.log(document.body.firstElementChild.children);
+        //then this will gives only the element childs
+
+
+        //accessing previous element siblings
+        console.log(document.body.firstElementChild.children[2].previousElementSibling);
+        
+        
+        //accessing next element siblings
+        console.log(document.body.firstElementChild.children[2].nextElementSibling);
+        
+        
+
+
+
+    </script>
+</body>
+</html>
