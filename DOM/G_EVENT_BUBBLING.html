@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .child{
+            background-color: cadetblue;
+            border: 2px solid black;
+            margin: 14px;
+            padding: 14px;
+        }
+        .childContainer{
+            background-color: chartreuse;
+            border: 2px solid black;
+            margin: 14px;
+            padding: 14px;
+        }
+        .container{
+            background-color: red;
+            border: 2px solid black;
+            margin: 14px;
+            padding: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="childContainer">
+            <div class="child">
+                i am a child
+            </div>
+        </div>
+    </div>
+    <script>
+        // document.querySelector(".child").addEventListener("click",()=>{
+        //     alert("Child is clicked")
+        // })
+
+        // document.querySelector(".childContainer").addEventListener("click",()=>{
+        //     alert("childContainer is clicked")
+        // })
+
+        // document.querySelector(".container").addEventListener("click",()=>{
+        //     alert("container is clicked")
+        // })
+
+        //here as the child is inside the parent and parent is inside the grandchild, so technically clicking child
+        // will first shwo the event of the child, then parent and then grandparent, but in a single click
+
+        //even if we click the parent container, then we will get the event of grandparent container
+
+        //this is called "Event Bubbling"
+
+
+        //we can stoop bubblling by using event.stoppropogation
+        //for this we hav eto put "e" or anyvariable inside the parameter of the function
+        // and in function def. we have to use event.stoppropogation
+        document.querySelector(".child").addEventListener("click",(s)=>{
+            s.stopPropagation();
+            alert("Child is clicked")
+        })
+
+        document.querySelector(".childContainer").addEventListener("click",(na)=>{
+            na.stopPropagation();
+            alert("childContainer is clicked")
+        })
+
+        document.querySelector(".container").addEventListener("click",(tunn)=>{
+            tunn.stopPropagation();
+            alert("container is clicked")
+        })
+
+    </script>
+</body>
+</html>
