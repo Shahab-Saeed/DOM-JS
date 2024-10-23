@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" > hy this is contaner
+        <div class="box" style="display: flex;">Hey I Am A Box</div>
+        <div class="box" id="oo">Hey I Am A Box</div>
+        <span class="o">this is span</span> 
+    </div>
+    <script>
+        
+        //here if we want to select any element we can use many methods, but here we are using query selector
+        console.log(document.querySelector(".box"));
+        //this will  gives the tags + the content inside it
+
+        //INNER HTMLL
+        //in inner html, we get only the html of the child , not the parent's html
+        //we can also change the text inside the element
+        //to get the html inside the tags, we use 
+
+        //inner html on child
+        console.log(document.querySelector(".box").innerHTML);
+        //this will  gives the tags + the content inside it
+
+
+        //inner HTML on parent
+        console.log(document.querySelector(".box").innerHTML);
+        //this will  gives the tags + the content inside it
+        
+        //changing the textt inside the element
+        console.log(document.querySelector(".box").innerHTML="shahab saeed");
+        
+
+        
+        //INNER TEXT
+        //this will gives all the text inside the tag irrespective of parent element's text or child element's text
+        //to get the text  inside the element we use
+        console.log(document.querySelector(".box").innerText);
+
+        //but id=f we use inner text with parent element, then
+        console.log(document.querySelector(".container").innerText);
+        //it wil gives the text of the parent element + the text  inside the child
+
+
+        //OUTER HTML
+        //contains HTMl of parent element as well as the child element
+        console.log(document.querySelector(".container").outerHTML);
+
+
+        //Tag Name
+        //to get the tag name of the element, we use this
+        //tag name is only applicable for tags
+        console.log(document.querySelector(".o").tagName);
+
+        //Node Name
+        //node name is applicable for tags + nodes(text nodes , comment nodex, etc)
+        console.log(document.querySelector(".container").nodeName);
+
+
+        console.log("Text Content");
+        
+        //Text Content
+        //provides access to the text inside the element: only text not all tags
+        //if we use it on parent element then , it will also gives the etxt of the child elements
+
+        //using it on parent element
+        console.log(document.querySelector(".container").textContent);
+
+         //using it on child element
+         console.log(document.querySelector(".box").textContent);
+
+
+         //HIDDEN ATTRIBUTE
+         // if we use hidden with css, then it will remove that element
+         // but we can also do this with js
+         //for this: we have to set element.hidden=true
+         //EXAMPLE
+        //  console.log(document.querySelector(".container").hidden=true);
+         //this will put hidden with that element in html document
+
+
+         //ATTRIBUTE METHODS
+
+         //1.
+         //element.hasAttribute(name)
+         //method to check for  the existance of an attribute in an element
+        console.log(document.querySelector(".box").hasAttribute("style"));
+        //this will return true, as we have use style attriibute with that element in html
+
+        //if we have use att. with child but not with parent and we use hasAtt. with parent, then we will get false
+        console.log(document.querySelector(".container").hasAttribute("style"));
+
+
+        //2.
+        //element.getAttribute(name)
+        //method to get the property:value of the attribute used inside that element
+        console.log(document.querySelector(".box").getAttribute("style"));
+
+        //if we haven't use that attribute then it will return null
+        console.log(document.querySelector(".box").getAttribute("height"));
+
+
+        //3.
+        //element.setAttribute(name,value)
+        //method used to set the value of an attribute
+        console.log(document.querySelector(".box").setAttribute("style","display:inline"));
+        
+
+        //4.
+        //element.removeAttribute(name)
+        //method to remove the attribute from the element
+        console.log(document.querySelector(".box").removeAttribute("style"));
+        
+
+        //5.
+        //element.attributes
+        //method to get the collection of all the attributes
+        console.log(document.querySelector(".box").attributes);
+
+
+        //INSERTION METHODS
+        //whenever we want to insert element in an html document, we use insertion  methods
+
+        //first we wll create an element
+        let ele=document.createElement("p")
+
+        //then we will put the text inside that element
+        ele.innerHTML="Hy! This is <b>Shahab Saeed </b>"
+
+        //then we will set its class if we want to
+        ele.setAttribute("class","new");
+
+        //then we will insert that element
+        //1.
+        //Append ("this wll add element to the end of the node")
+        //document.querySelector(".container").append(ele);
+
+
+        //2.
+        //Prepend ("this wll add element to the start of the node")
+        // document.querySelector(".container").prepend(ele);
+
+
+        //3.
+        //Before ("this wll add element befoore the node")
+        // document.querySelector(".container").before(ele);
+        
+        
+        //4.
+        //After ("this wll add element after the node")
+        // document.querySelector(".container").after(ele);
+
+
+        //5.
+        //ReplaceWith ("this wll replace the node with the given node")
+        // document.querySelector(".container").replaceWith(ele);
+
+
+        //INSERT ADJACENT HTML
+        //we can insert HTML directly without using the above insertion methods
+
+        //1.
+        //beforeBegin (this will add HTML before the beginning of the container)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentHTML("beforeBegin","<p>Hello Guys! this is Sameul")
+        
+
+        //2.
+        //afterBegin (this will add HTML in the container in the beginning)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentHTML("afterBegin","<p>Hello Guys! this is Sameul")
+        
+
+    
+        //3.
+        //beforeEnd (this will add HTML in the container in the end)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentHTML("beforeEnd","<p>Hello Guys! this is Sameul")
+        
+
+
+        //4.
+        //afterEnd (this will add HTML after the container)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentHTML("afterEnd","<p>Hello Guys! this is Sameul")
+
+
+        
+        //INSERT ADJACENT TEXT
+        //same as insert adjacent HTML
+        //we can insert TEXT directly without using the above insertion methods
+
+        //1.
+        //beforeBegin (this will add HTML before the beginning of the container)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentText("beforeBegin","Hello Guys! this is Sameul")
+        
+
+        //2.
+        //afterBegin (this will add text in the container in the beginning)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentText("afterBegin","Hello Guys! this is Sameul")
+        
+
+    
+        //3.
+        //beforeEnd (this will add text in the container in the end)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentText("beforeEnd","Hello Guys! this is Sameul")
+        
+
+
+        //4.
+        //afterEnd (this will add text after the container)
+        // let cont=document.querySelector(".container");
+        // cont.insertAdjacentText("afterEnd","Hello Guys! this is Sameul")
+            
+        
+
+        //INSERT ADJACENT EXAMPLE
+        //same as the above two
+        
+
+
+        //NODE REMOVAL
+        //to remove a node we use node.remove()
+        // let ans=document.getElementById("oo")
+        // ans.remove();
+
+        //CLASSLIST
+        //this will return the array of classes we are using on a particular elemeny
+        // console.log(document.querySelector(".container").classList);
+
+
+        //CLASSNAME
+        //this will gives the string of classes we are using on a particular elemeny
+        // console.log(document.querySelector(".container").className);
+
+        //CLASSLIST.ADD
+        //to add a class in a particular element, we use .add();
+        // document.querySelector(".container").classList.add("fuzool");
+        //if we are executing this add statement agaiin and again when we are adding class of same name, then only on etime that
+        //class will be add not multiple times
+        
+
+        //CLASSLIST.REMOVE
+        //to remove a class from a particular element, we use .remove();
+        // document.querySelector(".container").classList.remove("fuzool");
+
+        //CLASSLIST.TOGGLE
+        //if absent, then make it present
+        //iif present, then make it absent
+        // document.querySelector(".container").classList.toggle("fuzool")
+
+
+        //CLASSLIST.CONTAINS
+        //checks for the given class, returns true or false
+        // console.log(document.querySelector(".container").classList.contains("fuzool"));
+        
+        
+    </script>
+</body>
+</html>
